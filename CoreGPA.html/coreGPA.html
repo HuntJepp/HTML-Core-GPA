@@ -1,0 +1,139 @@
+<!-- HTML Core GPA -->
+<!-- Group 14 -->
+<!-- Hannah Galindo, Hunter Jeppson, Davis Rasband, Caitlyn Stokes, Sydney Grover, Cameron Klepacz -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Core GPA</title>
+    <script>
+        //This function is called when the user clicks on the calcGPA button
+        function calcGPA()
+        {
+            //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+            //The value extracted is converted from a string to a float/decimal
+            fIS201 = parseFloat(document.getElementById("is201Grade").value);
+            fACC200 = parseFloat(document.getElementById("acc200Grade").value);
+            fIS303= parseFloat(document.getElementById("is303Grade").value);
+            fOverallGPA = parseFloat(document.getElementById("overallGPA").value);
+            fLast30GPA = parseFloat(document.getElementById("last30GPA").value);
+            fEssay = parseInt(document.getElementById("essay").value);
+
+            //calculates new gpa
+            fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (fEssay * .05)).toFixed(2);
+
+            //Display the calculated GPA to the HTML label named "coreGPA"
+            document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
+        }
+    </script>
+</head>
+<body>
+    <form>
+
+        <!--insert html tags -->
+        <h1>What is your IS Core GPA?</h1>
+        <!-- this is the drop down for the essay grade -->
+        <legend>Essay Score: </legend>
+                        <form>
+                            <select name="essay" id="essay">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                            <br><br>
+                        </form>
+                        
+<!-- this is the drop down for IS 201 -->
+        <legend>IS 201 Grade: </legend>
+                <form>
+                 <select name="is201Grade" id="is201Grade">
+                                <option value="4.0">A</option>
+                                <option value="3.7">A-</option>
+                                <option value="3.4">B+</option>
+                                <option value="3.0">B</option>
+                                <option value="2.7">B-</option>
+                                <option value="2.4">C+</option>
+                                <option value="2.0">C</option>
+                                <option value="1.7">C-</option>
+                                <option value="1.4">D+</option>
+                                <option value="1.0">D</option>
+                                <option value="0.7">D-</option>
+                                <option value="0.0">F</option> 
+                            </select>
+                            <br><br>
+                        </form>
+
+        <!-- this is the drop down for acc 200 -->
+        <legend>ACC 200 Grade: </legend>
+                <form>
+                    <select name="acc200Grade" id="acc200Grade">
+                                <option value="4.0">A</option>
+                                <option value="3.7">A-</option>
+                                <option value="3.4">B+</option>
+                                <option value="3.0">B</option>
+                                <option value="2.7">B-</option>
+                                <option value="2.4">C+</option>
+                                <option value="2.0">C</option>
+                                <option value="1.7">C-</option>
+                                <option value="1.4">D+</option>
+                                <option value="1.0">D</option>
+                                <option value="0.7">D-</option>
+                                <option value="0.0">F</option>  
+                            </select>
+                            <br><br>
+                        </form>
+<!-- Create legend/drop down menu for the IS 303 grade -->
+        <legend>IS 303 Grade: </legend>
+            <form>
+                <select name="is303Grade" id="is303Grade">
+                            <option value="4.0">A</option>
+                            <option value="3.7">A-</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.7">B-</option>
+                            <option value="2.4">C+</option>
+                            <option value="2.0">C</option>
+                            <option value="1.7">C-</option>
+                            <option value="1.4">D+</option>
+                            <option value="1.0">D</option>
+                            <option value="0.7">D-</option>
+                            <option value="0.0">F</option> 
+                        </select>
+                        <br><br>
+                    </form>
+                
+        <!-- Creates a number input for overall GPA -->
+        <legend>Overall GPA: </legend>
+            <form>
+                    <input type="number" id="overallGPA" name="txtWage" value="0.00" min="0.00" max="4.00" step=".01">
+                <br><br>
+            </form>
+
+        <!-- Creates a number input for GPA of last 30 credits -->
+        <legend>GPA of Last 30 Credits: </legend>
+            <form>
+                    <input type="number" id="last30GPA" name="txtWage" value="0.00" min="0.00" max="4.00" step=".01">
+                <br><br>
+            </form> 
+    <!-- This part calls the coreGPA function when the Calculated GPA button is pressed to print the formatted result -->
+        <form>
+            <button type="button" onclick="calcGPA()">Calculated GPA</button>
+
+            <br><br>
+
+            <!-- tag that outputs the funtion to our site -->
+            <p id="coreGPA"></p>
+        </form>
+
+            
+
+        <!--insert html tag for displaying the calcualted GPA --> 
+       
+    </form>
+</body>
+</html>
